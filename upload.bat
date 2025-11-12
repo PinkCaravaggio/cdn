@@ -32,7 +32,7 @@ for %%i in (%IMAGE_DIR%\*) do (
     for %%x in (jpg jpeg png gif webp svg bmp) do (
         echo %%~xi | find /i "%%x" >nul
         if not errorlevel 1 (
-            echo %ESC%[1;34m!BASE_URL!/%%~nxi%ESC%[0m
+            echo %ESC%[1;34m!BASE_URL!/%%~nxi%%~xi%ESC%[0m
         )
     )
 )

@@ -29,8 +29,8 @@ git push
 echo.
 echo.
 echo.
-echo Upload is completed!
-echo Uploaded images and URLs:
+echo Publish is completed!
+echo Published images and URLs:
 echo -------------------------------
 for %%i in (%IMAGE_DIR%\*) do (
     for %%x in (jpg jpeg png gif webp svg bmp) do (

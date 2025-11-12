@@ -23,14 +23,14 @@ git commit -m "%commitMsg%"
 git push
 
 echo.
-echo ✅ Uploaded images and URLs:
+echo Uploaded images and URLs:
 echo -------------------------------
 
 for %%i in (%IMAGE_DIR%\*) do (
     for %%x in (jpg jpeg png gif webp svg bmp) do (
         echo %%~xi | find /i "%%x" >nul
         if not errorlevel 1 (
-            echo !BASE_URL!/%%~nxi%%~xi
+            echo !BASE_URL!/%%~nxi
         )
     )
 )

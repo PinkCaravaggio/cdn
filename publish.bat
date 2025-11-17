@@ -10,6 +10,11 @@ cd /d "%~dp0"
 set "BASE_URL=https://letongchen.art/cdn/images"
 set "IMAGE_DIR=images"
 
+:: Output file on Desktop
+set "OUTFILE=%USERPROFILE%\Desktop\images_urls.txt"
+echo Published Image URLs > "%OUTFILE%"
+echo ----------------------- >> "%OUTFILE%"
+
 git add -A
 
 for /f "tokens=1-4 delims=/- " %%a in ('date /t') do (
@@ -36,7 +41,9 @@ for %%i in (%IMAGE_DIR%\*) do (
     for %%x in (jpg jpeg png gif webp svg bmp) do (
         echo %%~xi | find /i "%%x" >nul
         if not errorlevel 1 (
+            set "url=!BASE_URL!/%%~nxi"
             echo %ESC%[32m!BASE_URL!/%%~nxi%ESC%[0m
+            echo !url!>>"%OUTFILE%"
         )
     )
 )
